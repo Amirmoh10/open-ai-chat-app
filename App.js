@@ -77,7 +77,10 @@ function Chat() {
 
           const chunk = decoded.decode(new Uint8Array([value]));
           botResponse += chunk;
-          setMessages([...messages, { role: "assistant", content: result }]);
+          setMessages([
+            ...messages,
+            { role: "assistant", content: botResponse },
+          ]);
           setTimeout(processChunk);
         };
         processChunk();
